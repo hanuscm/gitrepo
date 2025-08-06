@@ -51,7 +51,7 @@ pipeline {
                         echo "Building Docker image..."
                         chmod 775  ${WORKSPACE}/complete/Dockerfile
         		cd ${WORKSPACE}/complete/
-                        docker build --no-cache --network=host -t sailajajaswi/dockerhub:latest -f ${WORKSPACE}/complete/Dockerfile complete
+                        docker build --no-cache --network=host -t sailajajaswi/dockerhub:latest -f ${WORKSPACE}/complete/Dockerfile
 
                         echo "Pushing Docker image to registry..."
                         docker login --username sailajajaswi --password Hany@7869
