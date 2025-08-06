@@ -19,7 +19,7 @@ pipeline {
             steps {
                 git branch: 'main', url: 'https://github.com/hanuscm/gitrepo.git'
                 sh 'ls -la'  // Verify files after checkout
-                sh 'cd ${WORKSPACE}/complete'
+                sh 'cd /home/reddha5/jenkins/workspace/build.job/complete'
                 sh 'ls -lrt'
                 sh 'mvn clean package'
             }
