@@ -19,7 +19,8 @@ pipeline {
             steps {
                 git branch: 'main', url: 'https://github.com/hanuscm/gitrepo.git'
                 sh 'ls -la'  // Verify files after checkout
-                sh 'cd complete'
+                sh 'cd ${env.WORKSPACE}/complete'
+                sh 'ls -lrt'
                 sh 'mvn clean package'
             }
         }
