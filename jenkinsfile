@@ -19,6 +19,7 @@ pipeline {
             steps {
                 git branch: 'main', url: 'https://github.com/hanuscm/gitrepo.git'
                 sh 'ls -la'  // Verify files after checkout
+                mvn clean package
             }
         }
         /*stage('SonarQube Analysis') {
