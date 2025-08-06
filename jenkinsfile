@@ -19,9 +19,12 @@ pipeline {
             steps {
                 git branch: 'main', url: 'https://github.com/hanuscm/gitrepo.git'
                 sh 'ls -la'  // Verify files after checkout
-                sh 'cd /home/reddha5/jenkins/workspace/build.job/complete'
-                sh 'ls -lrt'
-                sh 'mvn clean package'
+                dir("${env.WORKSPACE}/complete") {
+                  sh 'ls -lrt'
+                  sh 'mvn clean package'
+                  // Verify JAR was created
+                  sh 'ls -l target/*.jar'
+               }
             }
         }
         /*stage('SonarQube Analysis') {
