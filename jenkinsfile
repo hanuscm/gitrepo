@@ -75,7 +75,7 @@ pipeline {
                 docker rm gitrepo || true
 
                 echo "Running new container on port 8081..."
-                docker run  -d --name gitrepo -p 8081:8081 sailajajaswi/dockerhub:latest
+                docker run  -d --name gitrepo -p 8081:8080 sailajajaswi/dockerhub:latest
                 #docker run -d --restart=always --name bms -p 3000:3000 sailajajaswi/dockerhub:latest
 
                 echo "Checking running containers..."
@@ -83,7 +83,7 @@ pipeline {
 
                 echo "Fetching logs..."
                 sleep 5  # Give time for the app to start
-                docker logs bms
+                docker logs gitrepo
                 '''
             }
         }
